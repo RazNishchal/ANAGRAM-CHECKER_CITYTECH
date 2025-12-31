@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anagram Checker</title>
+    <link rel="icon" type="image/jpeg" href="anagram.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Anagram Checker</h1>
+      <div class="input-area" autocomplete="off">
+        <input
+          type="text"
+          id="str1"
+          placeholder="Enter first word"
+          autocomplete="one-time-code"
+        />
+        <input
+          type="text"
+          id="str2"
+          placeholder="Enter second word"
+          autocomplete="one-time-code"
+        />
+      </div>
+      <button id="checkBtn" onclick="checkAnagram()">Compare Words</button>
+      <div id="result" class="result-text"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

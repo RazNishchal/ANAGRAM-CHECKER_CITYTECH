@@ -1,0 +1,99 @@
+body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    font-family: 'Inter', system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #1e293b;
+    padding: 40px;
+    border-radius: 24px;
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid #334155;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 24px;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+input {
+    padding: 14px;
+    border: 2px solid #334155;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: #0f172a;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+}
+
+button {
+    background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+    color: white;
+    padding: 14px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.2s, opacity 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+button:disabled {
+    background: #334155;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.result-text {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 15px; /* Smaller font size */
+    min-height: 40px; /* Reduced height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+}
+
+.is-anagram {
+    color: #4ade80;
+    background-color: rgba(74, 222, 128, 0.1);
+}
+
+.not-anagram {
+    color: #f87171;
+    background-color: rgba(248, 113, 113, 0.1);
+}
