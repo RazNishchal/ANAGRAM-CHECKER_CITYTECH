@@ -20,12 +20,29 @@ function checkAnagram() {
     const s = input1.value.toLowerCase().trim();
     const t = input2.value.toLowerCase().trim();
 
+    // Internal helper to reset UI after 4 seconds
+    const startResetTimer = () => {
+        btn.disabled = true;
+        setTimeout(() => {
+            input1.value = "";
+            input2.value = "";
+            resultDiv.innerText = "";
+            resultDiv.className = "result-text";
+            resultDiv.style.color = ""; // Resets warning color if any
+            btn.disabled = false;
+            input1.focus();
+        }, 4000);
+    };
+
+    // Validation: Check if inputs are empty
     if (!s || !t) {
         resultDiv.innerText = "Please enter both words";
         resultDiv.style.color = "#fbbf24";
+        startResetTimer(); // Triggers the 4-second reset for the warning
         return;
     }
 
+    // Main Anagram Logic
     if (isAnagram(s, t)) {
         resultDiv.innerText = "They are anagrams";
         resultDiv.className = "result-text is-anagram";
@@ -34,24 +51,14 @@ function checkAnagram() {
         resultDiv.className = "result-text not-anagram";
     }
 
-    btn.disabled = true;
-
-    setTimeout(() => {
-        input1.value = "";
-        input2.value = "";
-        resultDiv.innerText = "";
-        resultDiv.className = "result-text";
-        btn.disabled = false;
-        input1.focus();
-    }, 4000);
+    startResetTimer(); // Triggers the 4-second reset for results
 }
 
 /* LOGIC BREAKDOWN:
-1. Normalization: Uses .toLowerCase() and .trim() to ensure case and space-insensitive matching.
+1. Normalization: Uses .toLowerCase() and .trim() for case/space-insensitive matching.
 2. Length Guard: O(1) exit if lengths differ.
-3. Frequency Map: O(n) pass to count characters in the first string using a hash map.
-4. Comparison: Decrements counts while passing through the second string.
-5. UI Interaction: Updates the DOM and switches CSS classes for visual feedback.
-6. Auto-Reset: setTimeout clears input values and text after 4000ms.
-7. Complexity: O(n) time, O(1) space (limited character set).
+3. Frequency Map: O(n) pass to count characters in a hash map.
+4. Validation Fix: Added startResetTimer() to the "empty field" case so warnings clear in 4s.
+5. UI Interaction: Updates the DOM with small, compact text as requested.
+6. Auto-Reset: Centralized setTimeout clears values and restores focus after 4000ms.
 */
